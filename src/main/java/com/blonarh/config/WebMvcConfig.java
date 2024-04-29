@@ -1,4 +1,4 @@
-package com.stc.xprt.me.config;
+package com.blonarh.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

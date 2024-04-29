@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>crom</groupId>
-    <artifactId>namada-me</artifactId>
+    <groupId>blonarh</groupId>
+    <artifactId>dictionary-service</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
-    <name>namada-me</name>
+    <name>dictionary-service</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -94,10 +94,45 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
 <!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-security</artifactId>-->
+<!--            <groupId>org.springframework.data</groupId>-->
+<!--            <artifactId>spring-data-jpa</artifactId>-->
+<!--            <version>3.2.5</version>-->
 <!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>3.1.5</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>2.0.1.RELEASE</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>mysql</groupId>-->
+<!--            <artifactId>mysql-connector-java</artifactId>-->
+<!--        </dependency>-->
+
     </dependencies>
 
     <build>

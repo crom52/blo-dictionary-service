@@ -1,7 +1,24 @@
-## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
 spring:
-  main:
-    allow-bean-definition-overriding: true
+#  datasource:
+#    url: jdbc:mysql://stoveutc06-dev.mysql.sginfra.net:4725/streaming_event?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true&connectTimeout=120000&socketTimeout=120000&retriesAllDown=3
+#    hikari:
+#      username: streaming_event_app
+#      password: 12streaming_event_app!@
+#      connection-timeout: 120000
+#      max-lifetime: 1800000
+#      idle-timeout: 300000
+#      maximum-pool-size: 20
+#      minimum-idle: 20
+#  jpa:
+#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+#    show-sql: false
+#    hibernate:
+#      ddl-auto: none
+#    properties:
+#      hibernate.format_sql: true
+#      hibernate.use_sql_comments: true
+#  main:
+#    allow-bean-definition-overriding: true
 
 #  datasource:
 ##    url: jdbc:mysql://localhost:3306/rental?useSSL=false
@@ -38,16 +55,5 @@ spring:
 #    exchange: save-bill-topic
 #    queue: save-bill-queue
 #    routingkey: save-bill-routing-key
-
 server:
-#  host: localhost
-  port: 30303
-
-indexer:
-  api:
-#    url: https://persistence-testnet-rpc.cosmonautstakes.com/
-  rest:
-    url: https://rest.core.persistence.one
-
-
-
+  port: 8900
