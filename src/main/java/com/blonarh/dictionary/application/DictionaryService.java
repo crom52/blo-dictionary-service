@@ -15,6 +15,9 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.apache.commons.lang3.StringUtils.equalsIgnoreCase;
+import static org.apache.commons.lang3.StringUtils.isBlank;
+
 @Service
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -22,18 +25,21 @@ public class DictionaryService {
     DictionaryRepository dictionaryRepository;
     TopicDictionaryRepository topicDictionaryRepository;
 
+    @Transactional
     public List<Dictionary> insertDictionaries(List<Dictionary> dictionaries) {
         return dictionaryRepository.saveAll(dictionaries);
     }
 
+    @Transactional
     public List<Dictionary> updateDictionaries(List<Dictionary> dictionaries) {
         return dictionaryRepository.saveAll(dictionaries);
     }
 
     @Transactional
-    public Object upsertDictionariesByTopic(@RequestBody List<TopicDictionaryInsertReq> dictionaries) {
+    public Object upsertDictionariesByTopics(@RequestBody List<TopicDictionaryInsertReq> dictionaries) {
         List<TopicDictionary> topicDictionaryList = new ArrayList<>();
         for (TopicDictionaryInsertReq dic : dictionaries) {
+            fillContentHtml(dic);
             Dictionary savedDic = dictionaryRepository.saveAndFlush(dic);
 
             TopicDictionary topicDic = TopicDictionary.builder().topicId(dic.getTopicId())
@@ -46,5 +52,13 @@ public class DictionaryService {
             topicDictionaryList.add(topicDic);
         }
         return topicDictionaryRepository.saveAll(topicDictionaryList);
+    }
+
+    private void fillContentHtml(Dictionary dictionary) {
+        String content = dictionary.getContent();
+        if (isBlank(content) || equalsIgnoreCase(content, dictionary.getContentHtml())) {
+            return;
+        }
+        dictionary.setContentHtml("<p>" + content + "</p>");
     }
 }
